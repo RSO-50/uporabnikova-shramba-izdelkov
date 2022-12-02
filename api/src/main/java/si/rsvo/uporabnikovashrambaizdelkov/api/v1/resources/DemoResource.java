@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 @Produces(MediaType.APPLICATION_JSON)
 public class DemoResource {
 
-    
+
     private Logger log = Logger.getLogger(DemoResource.class.getName());
 
     @Inject
