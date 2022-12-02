@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5432:5432 postgres:13
+docker run -d --name pg-uporabnikova-shramba-izdelkov -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=uporabnikova-shramba-izdelkov -p 5432:5432 --network uporabnikovaShramba postgres:13
 ```
 
 ## Build and run commands
