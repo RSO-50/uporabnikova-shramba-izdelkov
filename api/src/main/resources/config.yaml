@@ -12,7 +12,7 @@ kumuluzee:
       connection-url: jdbc:postgresql://172.19.0.2:5432/uporabnikova-shramba-izdelkov
       username: dbuser
       password: postgres
-      max-pool-size: 20 
+      max-pool-size: 20
   health:
     checks:
       data-source-health-check:
@@ -42,13 +42,7 @@ kumuluzee:
                                   </Root>
                               </Loggers>
                           </Configuration>'
-rest-properties:
-  maintenance-mode: false
-  broken: false
-app-properties:
-  amazon-rekognition:
-    access-key:
-    secret-key:
+
 
 
 
