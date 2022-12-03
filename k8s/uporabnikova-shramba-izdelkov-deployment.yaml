@@ -13,15 +13,15 @@ spec:
         app: uporabnikova-shramba-izdelkov
     spec:
       containers:
-        - image: rsoskupina50/uporabnikova-shramba-izdelkov:latest
+        - image: rsoskupina50/uporabnikova-shramba-izdelkov:2022-12-02-21-27-36
           name: uporabnikova-shramba-izdelkov
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://manny.db.elephantsql.com:5432/mzcgdhno
+              value: jdbc:postgresql://mouse.db.elephantsql.com/mzcgdhno
             - name: KUMULUZEE_DATASOURCES0_USERNAME
               value: mzcgdhno
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
-              value: jE0VWKQK7B-QiIujiFZBfa1A174cb7Em
+              value: HNLXcZhB65htYCWwE5NALiLLS420Nn3T
           ports:
             - containerPort: 8080
               name: server
