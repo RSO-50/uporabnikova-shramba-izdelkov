@@ -16,6 +16,7 @@ import java.time.Instant;
 public class UporabnikoviIzdelkiMetadataEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "uporabnikId")
