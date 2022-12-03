@@ -59,19 +59,6 @@ public class UporabnikovaShrambaIzdelkovMetadataResource {
 
         return Response.status(Response.Status.OK).entity(favouritesMetadata).build();
     }
-    @Operation(description = "Get all favourites", summary = "Get all favourites")
-    @APIResponses({
-            @APIResponse(responseCode = "200",
-                    description = "List all favourites",
-                    content = @Content(schema = @Schema(implementation = UporabnikoviIzdelkiMetadata.class, type = SchemaType.ARRAY)),
-                    headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
-            )})
-    @GET
-    public Response getFavourites() {
-        List<UporabnikoviIzdelkiMetadata> favourites = uporabnikoviIzdelkiMetadataBean.getUporabnikoviIzdelkiMetadata();
-
-        return Response.status(Response.Status.OK).entity(favourites).build();
-    }
 
 
     /*
