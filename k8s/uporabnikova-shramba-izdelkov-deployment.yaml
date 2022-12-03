@@ -32,7 +32,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: uporabnikova-shramba-podatkov
+  name: uporabnikova-shramba-izdelkov
 spec:
   type: LoadBalancer
   ports:
@@ -40,4 +40,4 @@ spec:
       protocol: TCP
       targetPort: server
   selector:
-    app: uporabnikova-shramba-podatkov
+    app: uporabnikova-shramba-izdelkov
