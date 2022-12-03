@@ -42,7 +42,13 @@ kumuluzee:
                                   </Root>
                               </Loggers>
                           </Configuration>'
-
+rest-properties:
+  maintenance-mode: false
+  broken: false
+app-properties:
+  amazon-rekognition:
+    access-key:
+    secret-key:
 
 
 
