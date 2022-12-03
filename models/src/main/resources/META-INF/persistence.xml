@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
-    <persistence-unit name="uporabnikova-shramba-izdelkov-jpa" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="image-catalog-jpa" transaction-type="RESOURCE_LOCAL">
         <non-jta-data-source>jdbc/UporabnikovaShrambaIzdelkovMetadataDS</non-jta-data-source>
 
         <class>si.rsvo.uporabnikovashrambaizdelkov.models.entities.UporabnikoviIzdelkiMetadataEntity</class>
