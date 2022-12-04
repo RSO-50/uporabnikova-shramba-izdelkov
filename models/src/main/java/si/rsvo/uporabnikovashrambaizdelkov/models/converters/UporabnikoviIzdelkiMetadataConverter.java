@@ -8,6 +8,7 @@ public class UporabnikoviIzdelkiMetadataConverter {
     public static UporabnikoviIzdelkiMetadata toDto(UporabnikoviIzdelkiMetadataEntity entity) {
 
         UporabnikoviIzdelkiMetadata dto = new UporabnikoviIzdelkiMetadata();
+        dto.setId(entity.getId());
         dto.setUporabnikId(entity.getUporabnikId());
         dto.setIzdelekId(entity.getIzdelekId());
 
@@ -18,6 +19,7 @@ public class UporabnikoviIzdelkiMetadataConverter {
     public static UporabnikoviIzdelkiMetadataEntity toEntity(UporabnikoviIzdelkiMetadata dto) {
 
         UporabnikoviIzdelkiMetadataEntity entity = new UporabnikoviIzdelkiMetadataEntity();
+        entity.setId(dto.getId());
         entity.setUporabnikId(dto.getUporabnikId());
         entity.setIzdelekId(dto.getIzdelekId());
 
