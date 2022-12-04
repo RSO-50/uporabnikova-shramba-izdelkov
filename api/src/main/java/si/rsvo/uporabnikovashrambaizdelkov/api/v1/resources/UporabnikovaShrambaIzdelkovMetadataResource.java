@@ -74,6 +74,29 @@ public class UporabnikovaShrambaIzdelkovMetadataResource {
 
         return Response.status(Response.Status.OK).entity(favouritesMetadata).build();
     }
+    @Operation(description = "Add uporabnikovashrambaizdelkov metadata.", summary = "Add metadata")
+    @APIResponses({
+            @APIResponse(responseCode = "201",
+                    description = "Metadata successfully added."
+            ),
+            @APIResponse(responseCode = "405", description = "Validation error .")
+    })
+    @POST
+    public Response createImageMetadata(@RequestBody(
+            description = "DTO object with uporabnikova shramba izdelkov metadata.",
+            required = true, content = @Content(
+            schema = @Schema(implementation = UporabnikoviIzdelkiMetadata.class))) UporabnikoviIzdelkiMetadata uporabnikoviIzdelkiMetadata) {
+
+        if ((uporabnikoviIzdelkiMetadata.getUporabnikId() == null || uporabnikoviIzdelkiMetadata.getIzdelekId() == null)) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        else {
+            uporabnikoviIzdelkiMetadata = uporabnikoviIzdelkiMetadataBean.createUporabnikoviIzdelkiMetadata(uporabnikoviIzdelkiMetadata);
+        }
+
+        return Response.status(Response.Status.CONFLICT).entity(uporabnikoviIzdelkiMetadata).build();
+
+    }
     /*
     @Operation(description = "Get metadata for an id.", summary = "Get metadata for an id")
     @APIResponses({

@@ -49,6 +49,27 @@ public class UporabnikoviIzdelkiMetadataBean {
 
         return resultList.stream().map(UporabnikoviIzdelkiMetadataConverter::toDto).collect(Collectors.toList());
     }
+
+    @Timed
+    public UporabnikoviIzdelkiMetadata createUporabnikoviIzdelkiMetadata(UporabnikoviIzdelkiMetadata uporabnikoviIzdelkiMetadata) {
+
+        UporabnikoviIzdelkiMetadataEntity uporabnikoviIzdelkiMetadataEntity = UporabnikoviIzdelkiMetadataConverter.toEntity(uporabnikoviIzdelkiMetadata);
+
+        try {
+            beginTx();
+            em.persist(uporabnikoviIzdelkiMetadataEntity);
+            commitTx();
+        }
+        catch (Exception e) {
+            rollbackTx();
+        }
+
+        if (uporabnikoviIzdelkiMetadataEntity.getIzdelekId() == null || uporabnikoviIzdelkiMetadataEntity.getUporabnikId() == null) {
+            throw new RuntimeException("Entity was not persisted");
+        }
+
+        return UporabnikoviIzdelkiMetadataConverter.toDto(uporabnikoviIzdelkiMetadataEntity);
+    }
     /*
     @Timed
     public List<UporabnikoviIzdelkiMetadata> getUporabnikoviIzdelkiMetadataFilter(UriInfo uriInfo) {
