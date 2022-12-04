@@ -70,6 +70,33 @@ public class UporabnikoviIzdelkiMetadataBean {
 
         return UporabnikoviIzdelkiMetadataConverter.toDto(uporabnikoviIzdelkiMetadataEntity);
     }
+
+    public boolean deleteUporabnikoviIzdelkiMetadata(Integer uporabnikId, Integer izdelekId) {
+
+        TypedQuery<UporabnikoviIzdelkiMetadataEntity> query = em.createNamedQuery(
+                "UporabnikoviIzdelkiMetadataEntity.getUporabnikovIzdelek", UporabnikoviIzdelkiMetadataEntity.class);
+        query.setParameter("uporabnikId", uporabnikId);
+        query.setParameter("izdelekId", izdelekId);
+
+        UporabnikoviIzdelkiMetadataEntity uporabnikoviIzdelkiMetadata = query.getSingleResult();
+
+        if (uporabnikoviIzdelkiMetadata != null) {
+            try {
+                beginTx();
+                em.remove(uporabnikoviIzdelkiMetadata);
+                commitTx();
+            }
+            catch (Exception e) {
+                rollbackTx();
+            }
+        }
+        else {
+            return false;
+        }
+
+        return true;
+    }
+
     /*
     @Timed
     public List<UporabnikoviIzdelkiMetadata> getUporabnikoviIzdelkiMetadataFilter(UriInfo uriInfo) {

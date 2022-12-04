@@ -82,7 +82,7 @@ public class UporabnikovaShrambaIzdelkovMetadataResource {
             @APIResponse(responseCode = "405", description = "Validation error .")
     })
     @POST
-    public Response createImageMetadata(@RequestBody(
+    public Response createUporabnikovaShrambaIzdelkovMetadata(@RequestBody(
             description = "DTO object with uporabnikova shramba izdelkov metadata.",
             required = true, content = @Content(
             schema = @Schema(implementation = UporabnikoviIzdelkiMetadata.class))) UporabnikoviIzdelkiMetadata uporabnikoviIzdelkiMetadata) {
@@ -96,6 +96,33 @@ public class UporabnikovaShrambaIzdelkovMetadataResource {
 
         return Response.status(Response.Status.CONFLICT).entity(uporabnikoviIzdelkiMetadata).build();
 
+    }
+
+    @Operation(description = "Delete metadata for izdelek by one uporabnik.", summary = "Delete metadata")
+    @APIResponses({
+            @APIResponse(
+                    responseCode = "204",
+                    description = "Metadata successfully deleted."
+            ),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Not found."
+            )
+    })
+    @DELETE
+    @Path("/{uporabnikId}/{izdelekId}")
+    public Response deleteImageMetadata(@Parameter(description = "Metadata ID.", required = true)
+                                        @PathParam("uporabnikId") Integer uporabnikId,
+                                        @PathParam("izdelekId") Integer izdelekId){
+
+        boolean deleted = uporabnikoviIzdelkiMetadataBean.deleteUporabnikoviIzdelkiMetadata(uporabnikId, izdelekId);
+
+        if (deleted) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        }
+        else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
     /*
     @Operation(description = "Get metadata for an id.", summary = "Get metadata for an id")
