@@ -60,8 +60,6 @@ public class UporabnikovaShrambaIzdelkovMetadataResource {
         return Response.status(Response.Status.OK).entity(favouritesMetadata).build();
     }
 
-
-    /*
     @Operation(description = "Get all favourites for all users.", summary = "Get all metadata")
     @APIResponses({
             @APIResponse(responseCode = "200",
@@ -72,11 +70,10 @@ public class UporabnikovaShrambaIzdelkovMetadataResource {
     @GET
     public Response getUporabnikovaShrambaIzdelkovMetadata() {
 
-        List<UporabnikoviIzdelkiMetadata> favouritesMetadata = uporabnikoviIzdelkiMetadataBean.getUporabnikoviIzdelkiMetadataFilter();
+        List<UporabnikoviIzdelkiMetadata> favouritesMetadata = uporabnikoviIzdelkiMetadataBean.getUporabnikoviIzdelkiMetadata();
 
         return Response.status(Response.Status.OK).entity(favouritesMetadata).build();
     }
-    */
     /*
     @Operation(description = "Get metadata for an id.", summary = "Get metadata for an id")
     @APIResponses({
