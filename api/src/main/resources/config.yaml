@@ -21,7 +21,7 @@ kumuluzee:
   metrics:
     web-instrumentation:
       - name: uporabnikova-shramba-izdelkov-endpoint
-        url-pattern: /v1/uporabnikovashrambaizdelkov/*
+        url-pattern: /v1/uporabnikovaShramba/*
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                           <Configuration name="comments">
