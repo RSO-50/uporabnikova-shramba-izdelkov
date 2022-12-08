@@ -13,7 +13,7 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
 @OpenAPIDefinition(info = @Info(title = "Uporabnikova shramba podatkov API", version = "v1",
         contact = @Contact(email = "rso.skupina50@gmail.com"),
         license = @License(name = "dev"), description = "API for managing user's favourites."),
-        servers = @Server(url = "http://localhost:8080/"))
+        servers = @Server(url = "http://20.103.189.205:8080/"))
 @ApplicationPath("/v1")
 public class UporabnikovaShrambaIzdelkovMetadataApplication extends Application {
 
