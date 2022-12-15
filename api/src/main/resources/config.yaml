@@ -12,7 +12,8 @@ kumuluzee:
       connection-url: jdbc:postgresql://172.19.0.2:5432/uporabnikova-shramba-izdelkov
       username: dbuser
       password: postgres
-      max-pool-size: 20
+      pool:
+        max-size: 20
   health:
     checks:
       data-source-health-check:
@@ -42,6 +43,11 @@ kumuluzee:
                                   </Root>
                               </Loggers>
                           </Configuration>'
+  dev:
+    scan-libraries:
+      - uporabnikova-shramba-izdelkov-services
+      - uporabnikova-shramba-izdelkov-models
+      - uporabnikova-shramba-izdelkov-lib
 rest-properties:
   maintenance-mode: false
   broken: false
