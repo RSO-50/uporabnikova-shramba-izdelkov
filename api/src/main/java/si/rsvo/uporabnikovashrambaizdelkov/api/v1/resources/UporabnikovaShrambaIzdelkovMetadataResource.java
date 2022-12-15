@@ -10,6 +10,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import si.rsvo.uporabnikovashrambaizdelkov.api.v1.dtos.UploadImageResponse;
 import si.rsvo.uporabnikovashrambaizdelkov.lib.UporabnikoviIzdelkiMetadata;
 import si.rsvo.uporabnikovashrambaizdelkov.services.beans.UporabnikoviIzdelkiMetadataBean;
@@ -42,6 +43,23 @@ public class UporabnikovaShrambaIzdelkovMetadataResource {
 
     @Inject
     private UporabnikoviIzdelkiMetadataBean uporabnikoviIzdelkiMetadataBean;
+
+    @Operation(description = "Get shramba by username", summary = "Get all izdelki by one uporabnik's username")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "List of izdelki by uporabnik",
+                    content = @Content(schema = @Schema(implementation = UporabnikoviIzdelkiMetadata.class, type = SchemaType.ARRAY)),
+                    headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
+            )})
+    @GET
+    @Path("/byUsername/{username}")
+    public Response getUporabnikovaShrambaIzdelkovByUsername(@Parameter(description = "Uporabnikov username.", required = true)
+                                                             @PathParam("username") String username) {
+
+        List<UporabnikoviIzdelkiMetadata> favouritesMetadata = uporabnikoviIzdelkiMetadataBean.getUporabnikovaShrambaByUsername(username);
+
+        return Response.status(Response.Status.OK).entity(favouritesMetadata).build();
+    }
 
     @Operation(description = "Get izdelki by uporabnik", summary = "Get all izdelki by one uporabnik")
     @APIResponses({
