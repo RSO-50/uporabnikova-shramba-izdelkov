@@ -45,7 +45,7 @@ public class UporabnikoviIzdelkiMetadataBean {
     @PostConstruct
     private void init() {
         httpClient = ClientBuilder.newClient();
-        baseUrl = "http://localhost:8081"; // only for demonstration
+        baseUrl = "http://20.73.139.35/"; // ingress
     }
 
     @Timeout(value = 2, unit = ChronoUnit.SECONDS)
@@ -57,7 +57,7 @@ public class UporabnikoviIzdelkiMetadataBean {
 
         try {
             return httpClient
-                    .target(baseUrl + "/v1/uporabniki/byUsername")
+                    .target(baseUrl + "uporabniki/v1/uporabniki/byUsername")
                     .queryParam("username", username)
                     .request().get(new GenericType<Integer>() {
                     });

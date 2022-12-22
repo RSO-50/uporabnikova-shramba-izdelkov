@@ -11,6 +11,20 @@ spec:
   rules:
     - http:
         paths:
+          - path: /hello-world-one(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port:
+                  number: 80
+          - path: /hello-world-two(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-two
+                port:
+                  number: 80
           - path: /uporabnikova-shramba-izdelkov(/|$)(.*)
             pathType: Prefix
             backend:
@@ -18,10 +32,10 @@ spec:
                 name: uporabnikova-shramba-izdelkov
                 port:
                   number: 8080
-#          - path: /image-catalog(/|$)(.*)
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: image-catalog
-#                port:
-#                  number: 8080
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: aks-helloworld-one
+                port:
+                  number: 80
