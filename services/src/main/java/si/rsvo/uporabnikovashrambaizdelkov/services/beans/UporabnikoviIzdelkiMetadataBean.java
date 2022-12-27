@@ -30,7 +30,6 @@ import si.rsvo.uporabnikovashrambaizdelkov.lib.UporabnikoviIzdelkiMetadata;
 import si.rsvo.uporabnikovashrambaizdelkov.models.converters.UporabnikoviIzdelkiMetadataConverter;
 import si.rsvo.uporabnikovashrambaizdelkov.models.entities.UporabnikoviIzdelkiMetadataEntity;
 
-
 @RequestScoped
 public class UporabnikoviIzdelkiMetadataBean {
 
@@ -57,8 +56,7 @@ public class UporabnikoviIzdelkiMetadataBean {
 
         try {
             return httpClient
-                    .target(baseUrl + "uporabniki/v1/uporabniki/byUsername")
-                    .queryParam("username", username)
+                    .target(baseUrl + "uporabniki/v1/uporabniki/byUsername/" + username)
                     .request().get(new GenericType<Integer>() {
                     });
         }
