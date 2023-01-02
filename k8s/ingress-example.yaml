@@ -32,6 +32,41 @@ spec:
                 name: uporabnikova-shramba-izdelkov
                 port:
                   number: 8080
+          - path: /primerjalnik-cen(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: primerjalnik-cen
+                port:
+                  number: 8080
+          - path: /izdelki(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: izdelki
+                port:
+                  number: 8080
+          - path: /uporabniki(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: uporabniki
+                port:
+                  number: 8080
+          - path: /primerjalnik-izdelkov(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: primerjalnik-izdelkov
+                port:
+                  number: 8080
+          - path: /vrednotenje-izdelkov(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: vrednotenje-izdelkov
+                port:
+                  number: 8080
           - path: /(.*)
             pathType: Prefix
             backend:

@@ -13,7 +13,7 @@ spec:
         app: uporabnikova-shramba-izdelkov
     spec:
       containers:
-        - image: rsoskupina50/uporabnikova-shramba-izdelkov:2022-12-08-19-19-03
+        - image: rsoskupina50/uporabnikova-shramba-izdelkov:2022-12-27-19-32-35
           name: uporabnikova-shramba-izdelkov
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
