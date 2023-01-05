@@ -1,1 +1,2 @@
-INSERT INTO uporabnikoviIzdelki_metadata (uporabnikId, izdelekId) VALUES (100, 100);
+INSERT INTO uporabnikoviIzdelki_metadata (uporabnikId, izdelekId) VALUES (2, 1);
+INSERT INTO uporabnikoviIzdelki_metadata (uporabnikId, izdelekId) VALUES (2, 4);
